@@ -1,0 +1,217 @@
+body{
+    background: url(Assets/background.jpeg);
+    background-position: bottom;
+    background-attachment: fixed;
+    font-family: Comfortaa;
+}
+*{
+   font-family: Comfortaa;
+   color: white;
+} 
+
+    
+
+.searchBar{
+    height: 10vh;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    
+    
+}
+.searchBarParentDiv{
+    width: 50%;
+    height: fit-content;
+    position: relative;
+    
+}
+.inputField
+{
+    width: 100%;
+    border-radius: 23px;
+    color: black;
+    
+}
+.searchIcon{
+    position: absolute;
+    right: 8px;
+    top: 3px;
+}
+.searchIcon:hover{
+    cursor: pointer;
+}
+
+.main-contentParentDiv{
+    height: 90vh;
+    flex-direction: row;
+
+}
+.leftDiv{
+    width: 30%;
+   display: flex;
+    flex-direction: column;
+    color: white;
+    
+}
+
+.leftChild{
+    background: rgba(212, 212, 212,0.4);
+    width: 85%;
+    height: 40vh;
+    margin: auto;
+    border-radius: 15px;
+    backdrop-filter: blur(15px);
+    font-family: Comfortaa;
+}
+#cityName{
+    font-size: large;
+}
+#cityTemp{
+    font-size: large ;
+}
+#calenderImg{
+   mix-blend-mode:screen;
+   border-radius: 5px;
+    
+}
+#timeImg{
+    mix-blend-mode: screen;
+    border-radius: 50%;
+}
+/*Next 5 Days block*/
+.next5days{
+     font-size: smaller;
+}
+.dayWeather{
+    display: flex;
+    align-items: center;
+    
+}
+.cloudsImg{
+    mix-blend-mode: screen;
+}
+
+.rightDiv{
+    width: 70%;
+    
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+}
+
+.rightRow{
+    height: 27vh;
+    width: 100%;
+    
+}
+#pressureImg{
+     mix-blend-mode: screen;
+
+}
+.extraMetric{
+    background: rgba(212, 212, 212,0.4); 
+    padding: 1% 1% 1% 1%;
+    width: fit-content;
+    border-radius: 15px;
+    color: white;
+    align-items: center;
+}
+.rowTwoDiv{
+    background: rgba(212, 212, 212,0.4);
+    
+    width:45%;
+    height: 85%;
+    border-radius: 15px;
+}
+#AQIimg{
+     mix-blend-mode: screen;
+}
+.sunImg{
+   mix-blend-mode:screen;
+}
+.moonImg{
+     mix-blend-mode:screen;
+}
+.todayTemp{
+    background: rgba(212, 212, 212,0.4);
+    width: fit-content;
+    padding: 2px;
+    border-radius: 15px;
+    
+    text-align: center;
+    display: flex;
+    flex-direction:column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+
+
+}
+@media only screen and (max-width:767px)
+{
+    .rightDiv
+    {
+        width:100%;
+        margin-top: 15px;
+    }
+    .leftDiv
+    {
+       width: 100%;
+      display: flex;
+      flex-direction: column;
+      color: white;
+      gap :15px;
+      margin-top: 15px;
+    
+    }
+    .main-contentParentDiv
+    {
+    height: 90vh;
+    flex-direction: column;
+    }
+    .searchBar
+    {
+        width: 100%;
+    }
+    .searchBarParentDiv{
+    width: 85%;
+    height: fit-content;
+    position: relative;
+    }
+
+    .row1{
+        flex-wrap: wrap;
+        width: 80%;
+        margin: auto;
+        align-items: center;
+        justify-content: center;
+
+    }
+    .rowTwo{
+        flex-direction: column;
+        gap: 10px;
+        height: 40vh;
+    }
+    .rowTwoDiv{
+        width: 85%;
+    }
+    .row3{
+        margin-top: 37px;
+        margin-left: 39px;
+        margin-right: 39px ;
+       
+
+    }
+    .todayTempParent{
+        flex-wrap: wrap;
+
+
+    }
+    
+
+
+}

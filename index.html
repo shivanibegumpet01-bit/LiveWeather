@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Live Weather</title>
+    <link href = "style.css" rel ="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class = "searchBar">
+        <div class=" searchBarParentDiv">
+            <input type="text" class ="inputField" placeholder="Search City">
+            <img src="Assets/search.png" alt="" width= "23px" class="searchIcon" onclick="fetchData()">
+        </div>
+
+    </div>
+    <div class="main-contentParentDiv d-flex">
+      <div class="leftDiv">
+
+        <div class="currTemp leftChild p-3 d-flex flex-column gap-1">
+          <h6 class="m-0" id="cityName">City Name</h6>
+          <h5 class="m-0"><span id="cityTemp">0</span> &deg;C</h5>
+          <h6 class="m-0" id ="skyDesc">Sky desc</h6>
+          <hr class = "line">
+          <div class="d-flex">
+            <img src="Assets/calender.jpeg"  id="calenderImg" width="15px">
+            <h6 class="m-0" id ="date">Date</h6>
+          </div>
+          <div class = "d-flex">
+            <img src="Assets/time.jpeg" id= "timeImg" width=" 15px">
+            <h6 class="m-0" id ="time">Time</h6>
+          </div>
+
+
+        </div>
+        <div class="next5days leftChild  p-2 d-flex flex-column gap-1">
+          <h5 class="m-0">Next 5 Days</h5>
+          <div class = "dayWeather gap-1">
+            <img src="Assets/clouds.jpeg" class = "cloudsImg" width = "15px">
+            <h6 class="m-0"><span id ="day1">0</span> &degC</h6>
+            <h6  class="m-0" id="day1day" >Sunday</h6>
+            <h6 class="m-0" id="day1date">27-09-2026</h6>
+
+          </div>
+          <div class = "dayWeather gap-1">
+            <img src="Assets/clouds.jpeg" class = "cloudsImg" width = "15px">
+            <h6  class="m-0"><span id ="day2">0</span> &degC</h6>
+            <h6  class="m-0" id="day2day" >Sunday</h6>
+            <h6 class="m-0"id="day2date" >27-09-2026</h6>
+          </div>
+          <div class = "dayWeather gap-1">
+            <img src="Assets/clouds.jpeg" class = "cloudsImg" width = "15px">
+            <h6  class="m-0"><span id ="day3">0</span> &degC</h6>
+            <h6  class="m-0" id="day3day" >Sunday</h6>
+            <h6 class="m-0" id="day3date">27-09-2026</h6>
+          </div>
+          <div class = "dayWeather gap-1 ">
+          
+            <img src="Assets/clouds.jpeg" class = "cloudsImg" width = "15px">
+            <h6  class="m-0"><span id ="day4">0</span> &degC</h6>
+            <h6  class="m-0" id="day4day" >Sunday</h6>
+            <h6 class="m-0" id="day4date">27-09-2026</h6>
+          </div>
+
+          <div class = "dayWeather gap-1">
+            <img src="Assets/clouds.jpeg" class = "cloudsImg" width = "15px">
+            <h6  class="m-0"><span id ="day5">0</span> &degC</h6>
+            <h6  class="m-0" id="day5day" >Sunday</h6>
+            <h6 class="m-0" id="day5date">27-09-2026</h6>
+          </div>
+
+
+        </div>
+
+      </div>
+      <div class= "rightDiv">
+        <div class ="rightRow row1 d-flex gap-2 justify-content-between align-items-center">
+
+          <div class="extraMetric d-flex gap-3">
+            <img id ="pressureImg"src="./Assets/wind.jpeg" width="25px">
+            <div>
+              <h6  class="m-0" id = "pressure">Metric name</h6>
+              <h6  class="m-0" id = "pressureValue">Metric Value</h6>
+            </div>
+          </div>
+
+          <div class="extraMetric d-flex gap-3">
+            <img id ="pressureImg"src="./Assets/wind.jpeg" width="25px">
+            <div>
+              <h6 class="m-0" id= "humid">Metric name</h6>
+              <h6  class="m-0" id ="humidValue">Metric Value</h6>
+            </div>
+          </div>
+
+          <div class="extraMetric  d-flex gap-3">
+            <img id ="pressureImg"src="./Assets/wind.jpeg" width="25px">
+            <div>
+              <h6  class="m-0" id="seaLevel">Metric name</h6>
+              <h6  class="m-0" id ="seaLeveLValue">Metric Value</h6>
+            </div>
+          </div>
+
+          <div class="extraMetric  d-flex gap-3">
+            <img id ="pressureImg"src="./Assets/wind.jpeg" width="25px">
+            <div>
+              <h6  class="m-0 " id ="windSpeed">Metric name</h6>
+              <h6  class="m-0"  id="windSpeedValue">Metric Value</h6>
+            </div>
+          </div>
+
+
+        </div>
+
+
+
+        <div class ="rightRow rowTwo d-flex justify-content-between align-items-center ">
+          <div class = "AQI rowTwoDiv p-3 d-flex flex-column  ">
+            <h6>Air Quality Index</h6>
+            <div class="AQI d-flex align-items-center gap-3">
+              <img id = "AQIimg" src="Assets/wind(2).jpeg" width ="25px">
+              <div>
+                <h6  class="m-0" id ="co">AQI Metric</h6>
+                <h6 class="m-0" id ="coValue">Value</h6>
+              </div>
+              <div>
+                <h6 class="m-0" id ="no2">AQI Metri</h6>
+                <h6 class="m-0" id ="no2Value">Value</h6>
+              </div>
+              <div>
+                <h6 class="m-0" id ="o3">AQI Metri</h6>
+                <h6 class="m-0" id ="o3Value">Value</h6>
+              </div>
+              <div>
+                <h6 class="m-0" id ="so2">AQI Metri</h6>
+                <h6 class="m-0" id ="so2Value">Value</h6>
+              </div>
+            </div>
+
+          </div>
+          <div class ="Sunrise  rowTwoDiv p-3">
+            <h5> Sunrise & Sunset</h5>
+
+            <div class = "d-flex gap-1">
+
+            <div class = "SunriseDiv d-flex gap-1 align-items-center">
+              <img  class = "sunImg" src="Assets/sun.jpeg"  width = "45px" alt="">
+              <div class = "">
+                 <h6 class="m-0">Sunrise</h6>
+                 <h5 class="m-0" id = "sunrise">6:00 am</h5>
+              </div>
+
+            </div>
+            <div class = "SunsetDiv d-flex gap-1 align-items-center ">
+               <img  class = "moonImg" src="Assets/moon.jpeg" alt="" width ="35px">
+               <div class = " ">
+                 <h6 class="m-0">Sunset</h6>
+                 <h5 class="m-0" id ="sunset">6:00 pm</h5>
+              </div>
+            </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class ="rightRow row3 d-flex flex-column">
+          <h5 ><span class ="m-0 row3Heading">Today</span></h5>
+
+          <div class = " todayTempParent d-flex  justify-content-between">
+
+            <div  class = "todayTemp">
+              <h6 class = "m-0" >9:00 am</h6>
+              <img class = "cloudsImg" src="Assets/clouds.jpeg" width = "25px"alt="">
+              <h5><span id ="9amtemp">15</span> &deg;C</h5>
+
+            </div>
+            <div  class = "todayTemp">
+              <h6 class = "m-0">12:00 am</h6>
+              <img class = "cloudsImg" src="Assets/clouds.jpeg" width = "25px"alt="">
+              <h5><span id ="12amtemp">15</span>&deg;C</h5>
+
+            </div>
+            <div  class = "todayTemp">
+              <h6 class = "m-0">3:00 pm</h6>
+              <img  class = "cloudsImg" src="Assets/clouds.jpeg" width = "25px" alt="">
+              <h5><span id ="3pmtemp">15</span>&deg;C</h5>
+
+            </div>
+            <div  class = "todayTemp">
+              <h6 class = "m-0">6:00 pm</h6>
+              <img class = "cloudsImg" src="Assets/clouds.jpeg" width = "25px" alt="">
+              <h5><span id ="6pmtemp">15</span>&deg;C</h5>
+
+            </div>
+            <div  class = "todayTemp">
+              <h6 class = "m-0">9:00 pm</h6>
+              <img class = "cloudsImg" src="Assets/clouds.jpeg" width = "25px" alt="">
+              <h5><span id ="9pmtemp">15</span>&deg;C</h5>
+
+            </div>
+            
+
+          </div>
+      </div>
+      </div>
+
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+    <script
+  src="https://code.jquery.com/jquery-3.7.1.js"
+  integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+  crossorigin="anonymous"></script>
+  <script>
+
+      function dateFormat(timestamp){
+        const date = new Date(timestamp *1000);
+        console.log(date.toUTCString());
+        console.log(date.toLocaleString());
+
+        return date.toLocaleString();
+      }
+
+      function getDayName(dateString) {
+       // 1. Split the "5/10/2026" string into [5, 10, 2026]
+        const [day, month, year] = dateString.split('/');
+  
+      // 2. Create the date object (Note: JavaScript months start at 0, so October is 9)
+        const date = new Date(year, month - 1, day);
+  
+      // 3. Return the full day name
+        return new Intl.DateTimeFormat('en-IN', { weekday: 'long' }).format(date);
+      }
+
+      async function fetchAqiData(lat,lon) {
+        let AQIdata = await fetch(`http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&&appid=44e348231f43c01aa0e2be4b6e531ec6`);
+        let formattedData = await AQIdata.json();
+        console.log("AQI:",formattedData);
+
+        let list = formattedData.list[0].components;
+        console.log("line 239",list);
+        $('#co')[0].innerText = 'CO';
+        $('#coValue')[0].innerText = list.co;
+
+        $('#no2')[0].innerText = 'NO2';
+        $('#no2Value')[0].innerText = list.no2;
+
+        $('#o3')[0].innerText = 'O3';
+        $('#o3Value')[0].innerText = list.o3;
+
+        $('#so2')[0].innerText = 'SO2';
+        $('#so2Value')[0].innerText = list.so2;
+    }
+     
+
+     
+
+      async function fetchHourData(lat,lon){
+        let requestHourlyData = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=44e348231f43c01aa0e2be4b6e531ec6`)
+        let formattedHourlyData = await requestHourlyData.json();
+        console.log("Hourly Data:",formattedHourlyData);
+        let list = formattedHourlyData.list;
+        $('#9amtemp')[0].innerText = parseInt(list[0].main.temp-273.15);
+        $('#12amtemp')[0].innerText = parseInt(list[1].main.temp-273.15);
+        $('#3pmtemp')[0].innerText =parseInt(list[2].main.temp-273.15);
+        $('#6pmtemp')[0].innerText =parseInt(list[3].main.temp-273.15);
+        $('#9pmtemp')[0].innerText =parseInt(list[4].main.temp-273.15);
+
+       
+         $('#day1')[0].innerText = parseInt(list[6].main.temp-273.15);
+        
+         let day1date =dateFormat(list[6].dt).split(',')[0];
+         $('#day1date')[0].innerText = day1date;
+          $('#day1day')[0].innerText = getDayName(day1date);
+
+         $('#day2')[0].innerText = parseInt(list[11].main.temp-273.15);
+         let day2date =dateFormat(list[11].dt).split(',')[0];
+         $('#day2date')[0].innerText = day2date;
+         $('#day2day')[0].innerText = getDayName(day2date);
+
+         $('#day3')[0].innerText = parseInt(list[21].main.temp-273.15);
+         let day3date =dateFormat(list[21].dt).split(',')[0];
+         $('#day3date')[0].innerText = day3date;
+         $('#day3day')[0].innerText = getDayName(day3date);
+
+         $('#day4')[0].innerText = parseInt(list[29].main.temp-273.15);
+         let day4date =dateFormat(list[29].dt).split(',')[0];
+         $('#day4date')[0].innerText = day4date;
+         $('#day4day')[0].innerText = getDayName(day4date);
+
+         $('#day5')[0].innerText = parseInt(list[35].main.temp-273.15);
+         let day5date =dateFormat(list[35].dt).split(',')[0];
+         $('#day5date')[0].innerText = day5date;
+         $('#day5day')[0].innerText = getDayName(day5date);
+
+
+      }
+
+     
+      async function fetchData(){
+        let cityName = document.getElementsByClassName("inputField")[0].value;
+
+        
+        let requestData = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=44e348231f43c01aa0e2be4b6e531ec6`);
+        let formattedData = await requestData.json();
+        console.log(formattedData)
+
+        let responseCityName = formattedData.name;
+        let responseTemp = formattedData.main.temp;
+        let skyDescription = formattedData.weather[0].description;
+        $('#cityName')[0].innerText = responseCityName;
+        $('#cityTemp')[0].innerText = (responseTemp-273.15).toFixed(2);
+        $('#skyDesc')[0].innerText = skyDescription;
+
+        let properDate = dateFormat(formattedData.dt);
+        console.log(properDate);
+        let date = properDate.split(',')[0];
+        let time = properDate.split(',')[1];
+        $('#date')[0].innerText = date;
+        $('#time')[0].innerText = time;
+
+        //Sunsire and sunset
+
+        let sunriseTimestamp = dateFormat(formattedData.sys.sunrise).split(',')[1];
+        let sunsetTimestamp =   dateFormat(formattedData.sys.sunset).split(',')[1];
+        $('#sunrise')[0].innerText = sunriseTimestamp;
+        $('#sunset')[0].innerText = sunsetTimestamp;
+        console.log(skyDescription);
+
+        //Extra metrics
+        $('#pressure')[0].innerText = "Pressure"
+        $('#pressureValue')[0].innerText = formattedData.main.pressure;
+
+        $('#humid')[0].innerText = "Humidity"
+        $('#humidValue')[0].innerText = formattedData.main.humidity;
+
+        $('#seaLevel')[0].innerText = "Sea Level"
+        $('#seaLeveLValue')[0].innerText = formattedData.main.sea_level;
+
+        $('#windSpeed')[0].innerText = "Wind Speed"
+        $('#windSpeedValue')[0].innerText =formattedData.wind.speed;
+
+        
+
+        let lat = formattedData.coord.lat;
+        let lon = formattedData.coord.lon;
+
+        
+        fetchAqiData(lat,lon);
+        fetchHourData(lat,lon)
+        
+
+
+
+
+        
+
+
+
+
+
+
+      }
+  </script> 
+
+
+
+
+  </body>
+</html>
